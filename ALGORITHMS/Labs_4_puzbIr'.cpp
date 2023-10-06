@@ -63,9 +63,29 @@ int main()
         }
         break;
         std::cout << "Была выыедена последовательность, после сортировки выбором:" << std::endl;
-    case 7:
-        std::cout << "OK OK OK";
+     case 7:
+        int j, step, i;
+        for (step = N / 2; step > 0; step /= 2)
+        {
+            for (i = step; i < N; i++)
+                {
+                    temp = arr[i];
+                    for (j = i; j >= step; j -= step)
+                    {
+                        if (temp < arr[j - step])
+                        {
+                            arr[j] = arr[j - step];
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    arr[j] = temp;
+                }
+        }
         break;
+        std::cout << "Была выведена последовательность, после Shell sort:" << std::endl;
     default:
         std::cout << "Что-то пошло не так ;(" << "\n";
         exit(0);
